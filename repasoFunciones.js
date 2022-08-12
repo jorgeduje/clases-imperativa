@@ -1,99 +1,80 @@
 
 
-// DECLARADAS Y EXPRESADAS
-// Sumar 3 numeros 
+// ANCHOR SCOPE O ALCANZE
 
-let num1 = 12
-let num2 = 15
-let num3 = 3
-const sumar = (a, b, c)=>{
-     return a + b + c
-}
-
-let resultado = sumar( num1, num2, num3 )
-
-console.log( resultado )
-
-// CREAR UNA FUNCION PARA 
-// DIVIDIR EN 2 LO QUE ME RETORNO LA SUMA ANTERIOR
-// Y RETORNAR ESE NUEVO RESULTADO
-
-const dividir =   ( n1 ) => {
-
-    let nombre = "pepito"
-    return n1 / 2
-}
-
-let resultadoDivision = dividir( resultado )
+// LET Y CONST TIENEN UN SCOPE LOCAL
 
 
-console.log( resultadoDivision )
 
-//ANCHOR SCOPE  / ALCANZE 
-// CONST Y LET = SCOPE LOCAL 
-// PUEDO ACCEDER POR DENTRO A VARIABLES QUE SE DECLARARON AFUERA
-// PERO NO PUEDO ACCEDER POR FUERA A VARIABLES DECLARADAS ADENTRO
-
-const pruebaScope = function( n1, n2, n3 ){
-
-    let nombre = "pepito"
-
-    function hola (){
-
-       let nombre = "juancito"
-
-       console.log(nombre)
+// SUMAR 2 NUMEROS y DIVIDIRLO POR 2
+const sumar = (a, b)=>{
+    // BLOQUE DE CODIGO
+    
+    let apellido = "hola"
+    const restar = ()=>{
+        
+        let nombre = "pepito"
 
     }
-
+ 
 }
-// console.log(algo)
-// console.log( apellido ) //ESTO NO SE PUEDE
 
+// console.log(nombre)
 
+sumar(12, 2)
 
-//ANCHOR ARROW FUNCTION 
-// SI TENGO UN UNICO PARAMETRO PUEDO BORRAR LOS PARENTESIS
-// SI TENGO UNA SOLA LINEA DE CODIGO
-// PUEDO EVITAR LAS LLAVES Y EL RETURN
+const restar = ()=>{
 
-
-const restar = function ( a ) {
-
-    return a - 1
+    let apellido = "dasd"
+    let nombre = "pepito"
 
 }
 
-const restar2 =  a => a - 1
-
-console.log(restar(10))
-console.log(restar2(10))
+// let arr2 = arr.map( x =>  x * 2 )
 
 
-// ANTERIOR 
 
-function anterior ( num ) {
+const decirEdad = ( edad )=>{
 
-    return num - 1 
+    return "termino la funcion"
+
+    // EL CONSOLE LOG NO SE EJECUTRARA
+    console.log("hola")
+
+}
+
+ let resultadoEdad = decirEdad(5)
+
+ console.log(resultadoEdad)
+
+// CREAR UNA FUNCION QUE DEVUELVA EL ANTERIOR DE UN NUMERO
+// UNA QUE RETORNE EL TRIPLE DE UN NUMERO
+// UNA QUE RETORNE EL ANTERIOR DEL TRIPLE
+
+
+// const anterior = ( numero )=>{
+//     return numero - 1
+// }
+
+const anterior = numero => numero - 1
+
+let resultadoAnterior = anterior(2) 
+console.log(resultadoAnterior)
+
+
+const triple = numero => numero * 3
+
+let resultadoTriple = triple(8)
+console.log(resultadoTriple)
+
+const anteriorTriple = ( x ) => {
+   
+    // let resultadoTriple = triple( x )
+    // let resultadoAnterior = anterior( resultadoTriple )
+    // return resultadoAnterior
+
+   return anterior( triple( x ) )
 
 }
 
-// TRIPLE
-
-function triple (num){
-    return num * 3
-}
-
-// anteriorDelTriple
-
-function anteriorDelTriple ( num ) {
-    
-    // let a = triple(num)
-    // let b = anterior( a )
-    // return b
-
-    return anterior( triple(num) )
-
-}
-console.log(anteriorDelTriple(2))
-
+console.log( anteriorTriple(3) )

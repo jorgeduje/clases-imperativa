@@ -1,65 +1,54 @@
 
-// LINK FUNCIONES: 
+// ANCHOR FUNCIONES: 
 
-// DECLARADAS VS EXPRESADAS
+// LINK DECLARADAS VS EXPRESADAS
+
+// DECLARADAS ( TIENEN NOMBRE )
+
+// CREAR
+function sumar ( num1, num2, num3 ){
+    // BLOQUE DE CODIGO
+
+    return num1 - num2 
+    
+}
+
+// EJECUTAR / INVOCAR / MANDAR A LLAMAR
+
+let resultado = sumar(3, 4, 12)
+
+console.log( resultado )
 
 
-//DECLARADA
-function sumar ( num1, num2 ){
-    // BLOQUE DE COFIGO
-    console.log( num1 + num2 )
+// EXPRESADA ( COMUNES O LAS DE TIPO FLECHA ) (ANONIMAS)
+
+// EXPRESADA COMUN
+const restar = function(){
+    // BLOQUE DE CODIGO
+
+    console.log("Estoy restando")
 
 }
 
-// EXPRESADAS / ANONIMAS
-
-//COMUN
-const saludar = function( nombre ){
-    // BLOQUE DE COFIGO
-    console.log(`Hola ${nombre} como estas?`)
-
-}
+// restar()
 
 
-// ARROW FUNCTION
-const multiplicar = ()=>{
-    // BLOQUE DE COFIGO
-    console.log("multiplicar")
+// EXPRESADA DE TIPO FLECHA O ARROW FUNCTION
+
+const multiplicar = () => {
+    // BLOQUE DE CODIGO
+
+    return "hola como estas"
 
 }
 
-
-// EJECUTAR LA FUNCION O INVOCAR 
-let nombreUsuario = "maria"
-let nombreUsuario2 = "jorge"
-
-saludar(nombreUsuario)
-saludar(nombreUsuario2)
+let resultado2 = multiplicar()
 
 
-// PARAMETROS
+const saludar = ( nombreUsuario ) => {
 
-const restar = (a, b)=>{
-
-    console.log(a - b) 
+    return "Hola " + nombreUsuario
 
 }
 
-restar(22, 10)
-
-// BACKSTICKS
-
-let nombre = prompt("ingrese su nombre")
-
-
-const saludarUsuario = ( usuario )=>{
-
-    return parseInt(usuario)
-
-}
-
-const saludoFinal = saludarUsuario(nombre)
-console.log( typeof saludoFinal )
-
-
-// RETURN 
+let saludoFinal = saludar("pepito")
