@@ -2,37 +2,33 @@
 
 // ESTRUCTURAS DE CONTROL
 
-// IF ELSE
-
-// 50 es mayor
-// con 30 o mas es menor
-// con menos de 30 es muy menor
+// ELSE IF / TERNARIO / SWITCH 
 
 
-let edadUsuario = 30
+const probandoIf = ( numero ) =>{
 
-const determinarEdad = (edad) => {
-    if( edad >= 50 ){
-        // BLOQUE DE CODIGO
-        return "Disculpe usted es mayor"
-    }else if(edad >= 30){
-        //BLOQUE DE CODIGO
-        return "es menor"
+    if( numero >= 50 ){
+        // BLOQUE
+        return "el numero es mayor que 50"
+    }else if( numero > 30){
+        // BLOQUE 
+        return "el numero es mayor que 30 pero menor que 50"
     }else{
-        // BLOQUE DE CODIGO
-        return "es muy menor"
+        //BLOQUE
+        return "el numero no es mayor que 50 ni mayor que 30"
     }
+
+
 }
-// const determinarEdad = (edad) => {
-    
-//     return edad >= 50 ? "Es mayor" : "No es mayor"
 
-// }
+let resultadoIf = probandoIf(2)
+console.log( resultadoIf )
 
-let resultadoEdad = determinarEdad(edadUsuario)
-console.log(resultadoEdad)
+
 
 // TERNARIO
+
+// CONDICION / LO VERDADERO / LO FALSO
 
 let clima = "lluvioso"
 
@@ -41,31 +37,71 @@ let mamaSalgoConParaguas = clima === "lluvioso" ? "Si, llevalo" : "No, no hace f
 console.log(mamaSalgoConParaguas)
 
 
-// SWITCH
+const probarTernario = ( str ) =>{
 
-const obtenerSonido = ( animal ) => {
+    return str === "hola" ? "se cumplio el ternario" : "no se cumplio el ternario"
 
-    
-    switch( animal ){
-
-        case "perro":
-            console.log("guauu")
-            break
-        case "gato":
-            console.log("miauu")
-            break
-        case "loro":
-            console.log("lorooo")
-            break
-        default:
-            console.log("no conozco el sonido") ;
-        
-    }
 
 }
 
-let resultadoAnimal = obtenerSonido("gato")
-// console.log(resultadoAnimal)
+console.log( probarTernario("dasdasdasdas") )
+
+
+
+// SWITCH
+
+
+const obtenerSonido = (animal)=>{
+
+    switch( animal ){
+
+        case "perro":
+            return "guauu guauu"
+        case "loro":
+            return "repiten todooo"
+        case "jirafa":
+            return "jirafaaaaaaaa"
+        case "gato":
+            return "miauuuu"
+        default:
+            return "Lo siento, no conozco el sonido de ese animal"
+
+    }
+
+
+}
+
+let sonido = obtenerSonido("jirafa")
+console.log( sonido )
+
+
+const probandoSwitch = ( auto ) => {
+
+    let precio = 100
+
+    switch (auto) {
+
+        case "ford":
+            precio += 500
+            break
+        case "fiat":
+            precio += 400 // 500
+            break
+        case "vw": 
+            precio += 1000 // 1500
+            break
+        default:
+            precio += 100 // 1600
+        
+    }
+
+    return precio
+
+
+}
+
+console.log( probandoSwitch("fiat"))
+
 
 
 /*
@@ -82,26 +118,3 @@ let resultadoAnimal = obtenerSonido("gato")
  Si mide menos de 1,20m, no podrá subir ni acompañado.
 
 */
-
-
-const puedeSubir = ( altura, vieneAcompañado )=>{
-
-    if( altura >= 1.40 && altura < 2 ){
-
-        return "Puede subir" // ( TRUE )
-
-    }else if( altura < 1.40 && altura >= 1.20 && vieneAcompañado){
-        return "Puede, solo si esta acompañado"
-    }else{
-        return "no puede subir"
-    }
-
-}
-
-let resultadoSubir = puedeSubir(1.19 , true) 
-
-console.log( resultadoSubir )
-
-
-
-
