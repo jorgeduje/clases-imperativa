@@ -2,95 +2,108 @@
 // ANCHOR: 
     // ARRAY, ARREGLOS, LISTAS, COLECCIONES, ETC, ETC, ETC 
 
+
     let nombre = "jorge"
-    let edad = 12
-    let esMayor = false
+    let edad = 29
+    let esMayorDeEdad = false
 
-    let nombreHermanos = ["pepito", "maria", "juancito"]
-    let mezcla = ["hola", 12, true, false, "chau", 12]
+    // array
 
-    // POSICIONES
-    let numerosDeLaSuerte = [12, 22, 35] // 0, 1, 2, 3
+    let numerosDeLaSuerte = [12, 34, 134, 52, 29, 32] // ARREGLOS
 
-    console.log( nombreHermanos[2] )
-    console.log( numerosDeLaSuerte )
+    let nombresMascotas = ["jack", "lole", "rojo"] // posiciones empiezan en 0
+   
+    console.log( nombresMascotas[1] )
+    console.log( nombresMascotas[0] )
 
-    nombre = "otra cosa"
-
-    numerosDeLaSuerte[1] = 32
-    numerosDeLaSuerte[0] = 32
-    numerosDeLaSuerte[2] = 32
-
-    console.log(numerosDeLaSuerte)
-
-    // METODOS DE STRING
-
-    let frase = "hola pepito como estas?"
-
-    let fraseEnMayuscula = frase.toUpperCase()
-    console.log( fraseEnMayuscula )
-
-    let apellido = "Perez"
-
-    console.log( apellido.indexOf("e") ) // DEVUELVE LA PRIMER COINCIDENCIA 
-
-    // METODOS DE ARRAYS
-
-    let array = [12, 15, 1]
-
-    // array[0] = 22
-    // array[1] = 12
-
-    array.push(321, "hola") // AGREGA ELEMENTOS AL FINAL
-    array.unshift("primero") // AGREGA ELEMENTO AL INICIO
-    
-    console.log(array)
-    let eliminado = array.pop()
-    let eliminado2 = array.pop()
-    console.log(array)
-
-    console.log(eliminado)
-    console.log(eliminado2)
-    
+    console.log( nombre[0] )
 
 
-    let palabra = "hola"
-    let array2 = [ 1, 4, 2, 6, 12]
+    let nombreModificado = nombre.toUpperCase()
 
-    console.log( palabra.length)
-    console.log( array2.length)
+    console.log( nombreModificado )
 
-    console.log( array2.indexOf(6))
+    edad = 121
 
-    let arrPalabras = ["hola", "como", "estas", "chau"]
+    nombresMascotas[1] = "lola"
 
-    console.log(arrPalabras.indexOf("como"))
+    console.log( nombresMascotas[3] )
 
+
+
+    console.log("hola genteeee")
+
+
+    nombresMascotas[3] = "firulais"
+    nombresMascotas[4] = "manuelita"
+
+
+    nombresMascotas.push("coco")
+    nombresMascotas.push("hector", "morenita", 12, true, false, 21)
+
+    console.log(nombresMascotas)
+
+    nombresMascotas.pop()
+    nombresMascotas.pop()
+    nombresMascotas.pop()
+    nombresMascotas.pop()
+    nombresMascotas.pop()
+    nombresMascotas.pop()
+
+
+    console.log(nombresMascotas)
+
+
+   let eliminado = nombresMascotas.pop()
    
 
+   console.log(nombresMascotas)
+
+   console.log(eliminado)
+
+
+    let numeros2 = [ 1, 2, 3]
+
+    let inverso = [] // [ 3, 2, 1]
+
+    inverso.push( numeros2.pop() )
+    inverso.push( numeros2.pop() )
+    inverso.push( numeros2.pop() )
+
+    console.log(inverso)
+
+
+    // FOR Y LOS ARRAYS
+
+    let numerosAleatorios = [5, 12, 3, 6, 11]
+
+    // console.log( numerosAleatorios[0] )
+    // console.log( numerosAleatorios[1] )
+    // console.log( numerosAleatorios[2] )
+    // console.log( numerosAleatorios[3] )
+    // console.log( numerosAleatorios[4] )
+
+
+    numerosAleatorios.push(36)
+    numerosAleatorios.push(136)
+    numerosAleatorios.push(326)
+
+    // ITERAR 
+    for(let i = 0 ; i < numerosAleatorios.length ; i++){
+
+        console.log( numerosAleatorios[i] )
+
+    }
 
 
 
 
-console.log("------------------")
-console.log("------------------")
-console.log("------------------")
-
-let numeros = [ 12, 43, 15, 22, 123, 54]
-
-// numeros[0]
-// numeros[1]
-// numeros[2]
-
-for(let i = 0; i < numeros.length; i++){ // LENGTH = LA LONGITUD = 3
-
-    console.log( numeros[i] )
-
-}
 
 
-console.log("-------------")
-console.log("Ejercicio 1")
+
+
+
+
 
 
 
@@ -105,8 +118,22 @@ console.log("Ejercicio 1")
     Mostrar por pantalla la cantidad y los elementos de cada array.
 */
 
+console.log("------------------------")
+console.log("------------------------")
+console.log("------------------------")
+
 // LISTA DE CORREOS PENDIENTES
 
+let nombreee = "mari@m"
+
+console.log( nombreee.includes("@") ) // booleano
+console.log( nombreee.indexOf("@") !== -1 ) // un (-1)
+
+console.log("--------------------")
+console.log("--------------------")
+console.log("--------------------")
+
+// PARA SER VALIDO DEBE CONTENER UN @
 let arrayCorreosPendientes = [
     "iroman@digitalhouse.com",
     "loki%digitalhouse.com",
@@ -126,29 +153,27 @@ let arrayCorreosDescartados = [
     
 ];
 
-const verificadorDeCorreos = ( arreglo ) =>{
+const verificador = ( arr )=>{
 
-    for(let i = 0; i <  arreglo.length; i++){
 
-       if( arreglo[i].includes("@") ){
+    for(let i = 0; i < arr.length; i++){
 
-        arrayCorreosAdmitidos.push( arreglo[i] )
-
-       }else{
-
-        arrayCorreosDescartados.push( arreglo[i] )
-
-       }
-
+        if( arr[i].includes("@") ){
+            arrayCorreosAdmitidos.push( arr[i] )
+        }else{
+            arrayCorreosDescartados.push( arr[i] )
+        }
     }
+
 
 }
 
-verificadorDeCorreos(arrayCorreosPendientes)
+verificador(arrayCorreosPendientes)
+
 arrayCorreosPendientes = []
 
+console.log( "ADMITIDOSSSSS", arrayCorreosAdmitidos)
+console.log( "DESCARTADOS", arrayCorreosDescartados)
 console.log("PENDIENTES", arrayCorreosPendientes)
-console.log("ADMITIDOS",arrayCorreosAdmitidos)
-console.log("DESCARTADOS",arrayCorreosDescartados)
 
 
