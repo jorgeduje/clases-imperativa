@@ -1,63 +1,86 @@
 
-// NOMBRE RAZA EDAD SONIDO y METODO DECIRSONIDO 
-// METODO = RETORNAR ESE SONIDO 2 VECES
 
-// ARRAY MISMASCOTAS
+// CREAR UN ARRAY LLAMADO MISMASCOTAS
+// NOMBRE RAZA EDAD SONIDO
+// decirSonido  QUE RETORNE ESE SONIDO 2 veces
 
-
+console.log("ejercicio 1")
 
 let misMascotas = [
+
     {
-        nombre: "Jack",
+        nombre: "jack",
         raza: "callejero",
         edad: 2, // 3
-        sonido: 'guauuu',
+        sonido: "guauu",
         decirSonido: function(){
+            // return this.sonido + this.sonido
             return `${this.sonido} ${this.sonido}`
         }
+
     },
     {
         nombre: "lola",
         raza: "persa",
         edad: 7, // 9
-        sonido: 'miauu',
+        sonido: "miauuu",
         decirSonido: function(){
+            // return this.sonido + this.sonido
             return `${this.sonido} ${this.sonido}`
         }
+
     },
     {
         nombre: "firulais",
-        raza: "terval",
+        raza: "dogo",
         edad: 14, // 21
-        sonido: 'GUAUUUU',
+        sonido: "GUAUUUUUUUUU",
         decirSonido: function(){
+            // return this.sonido + this.sonido
             return `${this.sonido} ${this.sonido}`
         }
+
     }
+
 ]
 
-console.log( misMascotas[2].decirSonido() )
 
+console.log( misMascotas[1].nombre )
+console.log( misMascotas[1].decirSonido() )
+
+
+
+console.log("====================")
+console.log("ejercicio 2")
 /*
-Deberemos crear una función que se llame aumentarEdad 
-que aumente la edad de cada animal en 1.
+Deberemos crear una función que se llame aumentarEdad
+Recibe un array por parametros y aumenta la edad de los elementos en 1
 */
 
+// misMascotas[0].edad = misMascotas[0].edad + 1
 
 
-const aumentarEdad = ( arr )=>{
+const aumentarEdad = ( arreglo )=>{
+   
+    for( let i = 0; i < arreglo.length; i++ ){
 
-    for(let i = 0; i < arr.length; i++){
-
-        arr[i].edad += 1
+        // arreglo[i].edad = arreglo[i].edad + 1
+        arreglo[i].edad += 1
 
     }
 
+    
 }
 
-// aumentarEdad(misMascotas)
+//  console.log( misMascotas )
 
-// console.log(misMascotas)
+//  aumentarEdad( misMascotas )
+
+//  console.log( misMascotas )
+
+
+
+
 
 
 /**
@@ -69,54 +92,172 @@ su edad
 
 */
 
+const aumentarEdadCondicionada = ( arr )=>{
 
-const aumentarEdadMejorada = ( arr )=>{
+    for(let i = 0; i < arr.length; i++){
 
-    for( let i = 0; i < arr.length; i++ ){
+        if( arr[i].edad < 6 ){
 
-        if( arr[i].edad < 6){
             arr[i].edad += 1
+            
         }else if( arr[i].edad >= 6 && arr[i].edad <= 10){
-            arr[i].edad += 2
-        }else{
-            arr[i].edad += ( arr[i].edad / 2 )
-        }
-    }
 
+            arr[i].edad += 2
+
+        }else{
+
+            arr[i].edad += (arr[i].edad / 2)
+
+        }
+
+    }
 
 }
 
+
+aumentarEdadCondicionada(misMascotas)
 console.log(misMascotas)
 
-aumentarEdadMejorada( misMascotas )
-
-console.log(misMascotas)
-
-
-const suma = (num1, num2) => num1 + num2
-
-let resultado =  suma(2, 5)
-console.log( resultado )
 
 
 /*
+
 Ahora crearemos una función que va a generar un identificador
-(ID) en cada objeto, que será secuencial y 
+(ID) en cada objeto, que será AutoIncremental y 
 que empezará en 1.
 
 */
 
-const creadorDeId = ( arreglo )=>{
-    
+console.log("===========")
+console.log("ejercicio 3")
+const agregarId = ( arr )=>{
 
-    for(let i = 0; i < arreglo.length; i++){
+    for(let i = 0; i < arr.length; i++){
 
-        arreglo[i].id = i + 1
+        arr[i].id = i + 1
+
 
     }
 
 }
 
-creadorDeId(misMascotas)
+agregarId(misMascotas)
 
 console.log(misMascotas)
+
+
+// SUMAR LA CANTIDAD TOTAL DE AÑOS DE TODOS MIS OBJETOS
+
+
+const sumarEdades = (arr)=>{
+
+    let acumulador = 0 // 3 // 12 // 33
+
+    for (let i = 0; i < arr.length; i++) {
+
+        acumulador += arr[i].edad
+        
+    }
+
+    return acumulador
+
+
+}
+
+let resultadoSuma = sumarEdades(misMascotas)
+console.log( resultadoSuma )
+
+
+
+let productos = [
+    {
+        nombre: "telefono",
+        precio: 200,
+        cantidad: 5
+    },
+    {
+        nombre: "zapatilla",
+        precio: 100,
+        cantidad: 2
+    },
+    {
+        nombre: "notebook",
+        precio: 300,
+        cantidad: 3
+    },
+    {
+        nombre: "mac",
+        precio: 500,
+        cantidad: 4
+    }
+] // 2100
+
+
+const calcularTotalVenta = (arr)=>{
+
+    let acc = 0 // 1000 / 1200 / 2100
+
+    for (let i = 0; i < arr.length; i++) {
+
+        acc += ( arr[i].precio * arr[i].cantidad )
+        
+    }
+
+    return acc
+
+}
+
+let resultadoVenta = calcularTotalVenta(productos)
+
+console.log(resultadoVenta)
+
+
+
+// CREAR UNA FUNCION QUE RECIBA 2 NUMEROS POR PARAMETROS
+// SI LOS 2 NUMEROS SON PARES Y MAYORES QUE CERO
+// RETORNAR SU DIVISION
+// SI UNO O MAS NUMEROS SON IMPARES , RETORNAR LA SUMA DE AMBOS
+
+
+const verificar = ( num1, num2 )=>{
+
+    if( num1 === 0 || num2 === 0){
+
+        console.log("uno o mas numeros son iguales a cero")
+        return
+
+    }
+
+    if( num1 % 2 === 0 && num1 > 0 && num2 % 2 === 0 && num2 > 0){
+
+        // return num1 / num2
+        console.log("los numeros son pares")
+
+    }else if(num1 % 2 !== 0 && num2 % 2 !== 0){
+
+        console.log("los numeros son impares")
+
+    }else{
+        console.log("un numero es par y el otro es impar")
+        
+    }
+
+
+}
+
+verificar(1, 0)
+
+
+
+
+// ANCHOR PARES 
+// num % 2 === 0 
+
+// ANCHOR IMPARES
+// numero % 2 !== 0
+
+// ANCHOR NUMERO MULTIPLO DE UN NUMERO
+// NUMERO MULTIPLO de 8
+// CUALQUIER NUMERO DIVIDIDO EN 8 Y QUE SU RESTO SEA 0 
+// console.log( 24 % 8 === 0  && 24 % 6 === 0)
+
