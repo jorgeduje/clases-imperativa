@@ -261,3 +261,43 @@ verificar(1, 0)
 // CUALQUIER NUMERO DIVIDIDO EN 8 Y QUE SU RESTO SEA 0 
 // console.log( 24 % 8 === 0  && 24 % 6 === 0)
 
+/*
+El array de Alicia es: alicia = [ 10, 80, 75 ]
+El array de Bob es: bob = [ 90, 20, 25]
+*/
+
+let alicia = [ 10, 80, 75 ]
+let bob = [ 90, 80, 25]
+
+
+const concurso = ( arr1, arr2 )=>{
+    
+   
+
+    let puntajesP1 = 0
+    let puntajesP2 = 0
+    
+    for( let i = 0; i < arr1.length; i++ ){
+
+        if(arr1[i] > arr2[i] ){
+            puntajesP1 += 1
+        }else if(arr1[i] < arr2[i]){
+            puntajesP2 += 1
+        }
+
+    }
+
+   if( puntajesP1 > puntajesP2){
+        return `Gano el participante 1 con ${puntajesP1} puntos`
+   }else if(puntajesP1 < puntajesP2){
+        return `Gano el participante 2 con ${puntajesP2} puntos`
+   }else{
+        return "El concurso termino empatado"
+   }
+
+
+}
+
+let resultadoConcurso = concurso(alicia, bob)
+
+console.log( resultadoConcurso )
