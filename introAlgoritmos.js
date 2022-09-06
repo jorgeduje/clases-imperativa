@@ -6,66 +6,119 @@
 // ES EL MAYOR ENTRE 2 NUMEROS, SI SON IGUALES,
 // RETORNAR CUALQUIERA DE LOS 2.
 
-const miPrimerAlgoritmo = ( num1, num2 )=>{
+// const miPrimerAlgoritmo = (num1, num2) => num1 > num2 ? num1 : num2
 
-    if(num1 > num2){
-        return num1
-    }else{
-        return num2
-    }
+const miPrimerAlgoritmo = (num1, num2) =>{
+
+   if(num1 > num2){
+    return num1
+   }else{
+    return num2
+   }
 
 }
 
-console.log( miPrimerAlgoritmo(122, 122) )
+// 14, 12, 36, 28
 
-// CALCULAR EL MAYOR ENTRE 4 NUMEROS
-// 15, 65, 121, 76
 
-let mayorEntre4 = miPrimerAlgoritmo( miPrimerAlgoritmo(125,65), miPrimerAlgoritmo(76, 121) )
+let mayorEntre4 = miPrimerAlgoritmo( miPrimerAlgoritmo(14, 12) , miPrimerAlgoritmo(36, 28) )
 
 console.log(mayorEntre4)
 
 
-
-// CREAR UN ALGORITMO EL CUAL RECORRA UN ARRAY
+// CREAR UN ALGORITMO EL CUAL RECIBA UN ARRAY
 // Y RETORNE EN UN NUEVO ARREGLO EL NUMERO MINIMO y EL MAXIMO
 
-// OBJETO Math.
+let numeros = [54, 65, 12, 15, 29, 32, 89, 17] // [12, 89]
 
-let numeros = [12, 3, 2, 75, 4, 11, 56, 13]
+let arr = []
+arr.push( Math.min(...numeros), Math.max(...numeros))
 
+console.log(arr)
 
-// let minMax = []
+let numeros2 = [542, 1265, 12, 15, 29, 32, 89, 17] // [12, 89]
 
-// minMax.push( Math.min(...numeros), Math.max(...numeros) )
-
-// console.log(minMax)
 
 const determinarMinMax = ( arr )=>{
 
-    let minMax = []
-    let min = arr[0] // 12
-    let max = arr[0]
+    let mayor = arr[0]
+    let menor = arr[0]
 
-    for (let i = 1; i < arr.length; i++) {
-      
-        min > arr[i] ? min = arr[i] : null
-        max < arr[i] ? max = arr[i] : null
+    let minMax = []
+
+    for (let i = 0; i < arr.length; i++) {
+        
+        if( mayor < arr[i] ){
+            mayor = arr[i]
+        }
+
+        if( menor > arr[i]){
+            menor = arr[i]
+        }
 
     }
 
-    minMax.push(min, max)
-    return minMax
+    minMax.push(menor, mayor)
 
-    // return [min, max]
+    return minMax
 
 }
 
-let resultadoMinMax = determinarMinMax(numeros)
-console.log(resultadoMinMax)
+let resultadoArr =  determinarMinMax(numeros)
+console.log(resultadoArr)
 
-let mat = [ 
-    ["hola", "chau"], 
-    ["como", "hola"], 
-    ["casa", "perro"] 
-] // 3 x 2
+
+
+// let edades = [ 12, 54, 22, 65, 86, 65]
+let edades2 = [ 43, 22, 31, 14, 32, 21, 31, 14]
+
+const verificar = (array)=>{
+
+    let edadesRepetidas = []
+
+    for (let i = 0; i < array.length; i++) {
+
+        if( !edadesRepetidas.includes(array[i]) ){
+            edadesRepetidas.push(array[i])
+        }else{
+            console.log("Se encontro una edad repetida: ", array[i])
+        }
+        
+    }
+
+}
+
+verificar(edades2)
+
+
+const verificarRepetidos = (array) =>{
+
+    let n1 = 0
+    let n2 = 0
+
+    let edadesRepetidas = [] // [31, 14]
+
+    for (let i = 0; i < array.length; i++) {
+
+        n1 = array.indexOf(array[i])
+        n2 = array.lastIndexOf(array[i])
+        
+        if(n1 !== n2){
+            
+            edadesRepetidas.push(array[i])
+
+        }
+
+
+    }
+
+    return edadesRepetidas
+
+}
+
+let repetidas = verificarRepetidos(edades2)
+console.log(repetidas)
+
+let edades1 = [10, 9, 8, 22, 55, 80, 5, 63, 29, 9] /// índice x
+      
+
