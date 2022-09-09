@@ -1,109 +1,126 @@
 
 // ANCHOR MATRICES
 
+let numeros = [ 12, 54, 11]
 
-let matrix = [ [12, 4, 5],[5, 11],[6, 13] ] // 3 x 3
 
-// SIEMPRE LA MATRIZ SE DICE QUE ES DE TANTAS FILAS X TANTAS COLUMNAS
-let matriz = [
-    [4, 7, 14], // FILAAAAAA
-    [1, 3, 15], // FILAAAAAA
-    [6, 9] // FILAAAAAAA
+// DETERMINAR DE CUANTO ES LA MATRIZ 3 x 2
+let matrix = [
+    [1, 5, 6], // FILA 0
+    [3, 6, 12], // FILA 1
 ]
 
+// console.log( matrix[0][0] )
+// console.log( matrix[0][1] )
+// console.log( matrix[0][2] )
 
-// CREAR UNA MATRIZ de 2 X 5 // FILA - COLUMNA
+// CALCULAR EL TOTAL DE LA FILA 
 
-// console.log( matriz[2][0] )
-// console.log( matriz[2][1] )
-// console.log( matriz[2][2] )
+// LINK SIEMPRE LE PIDO LA LONGITUD A LA FILA
 
-// ANCHOR RECORRER UNA FILA ESPECIFICA DE LA MATRIZ 
+const recorrerFila = ( mat, numFila )=>{
 
-// LINK PARA RECORRER UNA FILA ( LA FILA ES ESTATICA Y LA COLUMNA DINAMICA )
-// LINK PARA RECORRER UNA FILA LE PIDO LA LONGITUD A LA FILA
+    let acc = 0
 
-// EJEMPLO RECORRER FILA 2
-const recorrerFila = ( mat )=>{
+    for (let i = 0; i < mat[numFila].length; i++) {
 
-    for (let i = 0; i < mat[2].length; i++) {
-        
-        console.log( mat[2][i] )
-        console.log("--------")
+        acc += mat[numFila][i] 
         
     }
 
+    return acc
+
 }
-recorrerFila( matriz )
+
+console.log( recorrerFila( matrix, 0 ) )
 
 
-let matriz2 = [
-    [4, 2, 6], // FILAAAAAA
-    [1, 3, 15], // FILAAAAAA
-    [6, 9, 54], // FILAAAAAAA
-    [1, 8, 12 ], // FILAAAAAAA
+let matrix2 = [
+    [1, 5, 6], // FILA 0
+    [3, 6, 12], // FILA 1
+    [3, 6], // FILA 1
+    [3, 6], // FILA 1
+    [3, 6, 1], // FILA 1
 ]
+// CALCULAR EL TOTAL DE LA COLUMNA 2
 
-// ANCHOR RECORRER UNA COLUMNA
-
-// LINK PARA RECORRER UNA COLUMNA LE VOY A PEDIR LA LONGITUD A LA MATRIZ
-// LINK LAS FILAS SON DINAMICAS Y LAS COLUMNAS ESTATICAS
-
-
-console.log("RECORRIENDO COLUMNA 1")
-// ANCHOR EJEMPLO RECORRER COLUMNA 1
-
-const recorrerCol = ( mat ) =>{
+const recorrerCol = (mat)=>{
 
     let acc = 0
 
     for (let i = 0; i < mat.length; i++) {
         
-        if( mat[i][1] !== undefined){
-
-            if( mat[i][1] % 2 === 0){
-
-                acc += mat[i][1]
-            }
-
+        if( mat[i][2] !== undefined){
+            
+            acc += mat[i][2]
         }
 
     }
+    
     return acc
 
 }
 
- let resultadoCol = recorrerCol( matriz2 )
- console.log(resultadoCol)
+console.log( recorrerCol(matrix2) )
 
-
- let matriz3 = [
-    [4, 2, 6, 6], // FILAAAAAA
-    [1, 3, 15], // FILAAAAAA
-    [6, 9, 54, 15, 644], // FILAAAAAAA
-    [1], // FILAAAAAAA
-]
 
 // CALCULAR EL TOTAL DE LA MATRIZ
-console.log("RECORRER MATRIZ COMPLETE")
 
-const recorrerMat = ( mat )=>{
+console.log( "RECORRIENDO MATRIZ COMPLETA")
+
+let matriz = [
+    [2, 4, 1],
+    [5, 2],
+    [6, 5, 8, 54, 12]
+]
+
+const recorrerMat = (mat) =>{
 
     let acc = 0
 
-    for (let i = 0; i < mat.length; i++) { // i = FILA
-        
-        for (let j = 0; j < mat[i].length; j++) { // j = COLUMNA
+    for (let i = 0; i < mat.length; i++) {
+
+        console.log( "estoy dando la vuelta de la fila " + i)
+
+        for (let j = 0; j < mat[i].length; j++) {
             
-            console.log("-----------------")
-            console.log( mat[i][j] ) // 4 - 2 - 6 - 1 - 3 -15
+            console.log( "Estoy en la columna " + j)
+            acc += mat[i][j]
 
         }
-
-
 
     }
 
 }
 
-recorrerMat( matriz3 )
+recorrerMat(matriz)
+
+// RECORRER LA MATRIZ Y CAMBIAR TODOS LOS NUMEROS NEGATIVOS POR SUS POSITIVOS
+
+let matrixRecargado = [
+    [2, -5, 14],
+    [-8, -4, 1],
+    [6, -6, -12]
+]
+
+console.table( matrixRecargado )
+
+
+const cambiarNegativos = (mat)=>{
+
+    for (let i = 0; i < mat.length; i++) {
+
+        for (let j = 0; j < mat[i].length; j++) {
+
+            if( mat[i][j] < 0 ){
+                // mat[i][j] = mat[i][j] * -1
+                mat[i][j] = 0
+            }
+        }
+    }
+
+}
+
+cambiarNegativos( matrixRecargado )
+
+console.table(matrixRecargado)
