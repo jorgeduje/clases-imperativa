@@ -33,40 +33,45 @@ let canciones = [
     }
 ]
 
+
 const buscar = (arr, cancion)=>{
 
     for (let i = 0; i < arr.length; i++) {
-        
-        if( arr[i].cancion === cancion ){
 
+        if(arr[i].cancion === cancion ){
             return arr[i].votos
-
         }
-
+        
     }
+
+    return "La cancion no se encontro"
 
 }
 
 let resultadoLineal = buscar(canciones, "susanita")
 console.log( resultadoLineal )
 
-const ordenar = arr =>{
+
+const ordenar = arr => {
+
     let aux
 
     for (let i = 0; i < arr.length; i++) {
-
+       
         for (let j = 0; j < arr.length - 1; j++) {
-            
-            if(arr[j].cancion > arr[j + 1].cancion ){
+
+            if( arr[j].cancion > arr[j + 1].cancion ){
 
                 aux = arr[j]
                 arr[j] = arr[j + 1]
                 arr[j + 1] = aux
-            }
 
+            }
+            
         }
         
     }
+
 }
 
 ordenar(canciones)
@@ -74,23 +79,25 @@ ordenar(canciones)
 // console.log(canciones)
 
 
-const binarySearch = ( arr, cancionBuscada )=>{
+const encontrar = (arr, cancionBuscada)=>{
 
-    let menor = 0 // left 
+    let menor = 0 // left
     let mayor = arr.length - 1 // rigth
     let posicionMedio // mid
-    let cancionEncontrada // guess
+    let cancionEncotrada // guess
 
     while( menor <= mayor ){
 
         posicionMedio = Math.floor( (menor + mayor) / 2 )
-        cancionEncontrada = arr[posicionMedio]
+        cancionEncotrada = arr[posicionMedio]
 
-        if( cancionEncontrada.cancion === cancionBuscada ){
-            return cancionEncontrada.votos
+        if( cancionEncotrada.cancion === cancionBuscada ){
+
+            return cancionEncotrada.votos
+
         }
 
-        if( cancionEncontrada.cancion > cancionBuscada){
+        if( cancionEncotrada.cancion > cancionBuscada){
 
             mayor = posicionMedio - 1
 
@@ -99,10 +106,11 @@ const binarySearch = ( arr, cancionBuscada )=>{
             menor = posicionMedio + 1
 
         }
-
     }
 
 }
 
-let resultadoBinary = binarySearch( canciones, "susanita")
-console.log(resultadoBinary)
+let resultadoBinary = encontrar(canciones, "susanita")
+console.log( resultadoBinary )
+
+console.log( canciones )
